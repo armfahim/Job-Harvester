@@ -1,0 +1,183 @@
+[2019-06-26]
+* [MH] Station capacity limits it's amount
+
+[2019-05-14]
+* [IR] job-harvestar-0.6.0-SNAPSHOT with talent-model-0.3.1-SNAPSHOT
+* [IR] selenium abstact and scrapers moved to own package NS
+* [IR] AbstractScraper wrong class name fix
+* [IR] talent-model added as dependency and job, org, site config are coming from it
+
+[2019-05-13]
+* [IR] All models moved to talent-model project
+
+[2019-04-17]
+* [IR] Tomcat initializer added
+* [IR] workstation capacity check moved to AbstractScraperLauncher
+* [IR] scraper launch counter issues fixed
+* [IR] Using @RabbitListener annotation (config updated)
+
+[2019-04-15]
+* [IR] job-harvestar can now be distributed (snapshot and release)
+
+[2019-04-11]
+* [IR] 0.5.0-SNAPSHOT
+* [IR] Changed package namespace to io.naztech.jobharvestar.scraper
+* [IR] project (module) name changed to job-harvestar
+
+[2019-03-27]
+* [IR] EasyCruit scraper classes moved into own namespace
+* [IR] Brassring scraper classes moved into own namespace
+* [IR] ICIMS scraper classes moved into own namespace
+* [IR] BBVA scraper classes moved into own namespace
+* [IR] lever.co scraper classes moved into own namespace
+* [IR] greenhouse.io scraper classes moved into own namespace
+* [IR] indeed.com scraper classes moved into own namespace
+* [IR] Taleo scraper classes moved into own namespace
+* [IR] LinkedIn scraper classes moved into own namespace
+
+[2019-02-26]
+* [IR] Fixed job add and last update date time missing in DB
+
+[2019-02-25]
+* [AS] Selenium chrome driver initialize from common method (re-factoring)
+* [AS] Implemented all MyWorkDayJobs sites using AbstractMyWorkDayJobs
+* [TH] Implemented all Successfactors sites using AbstractSuccessfactors
+* [MH] Implemented all OCBC taleo sites using AbstractTaleoOcbc
+* [IR] Introduced getChromeDriver, getChromeClient, getFirefoxClient in abstract scraper
+* [IR] Updated AbstractMyWorkDayJobs, Westpac to use getChromeDriver
+* [IR] Updated TorontoDominionBank, XlGroup to use getChromeClient
+
+[2019-02-18]
+* [IR] Scrapers now stops when they get the stop signal
+* [IR] job counter moved to abstract class
+* [IR] Natixis bank had issues
+
+[2019-02-17]
+* [IR] Scraper stop controller is implemented and scraper gets the stop signal
+* [IR] Running scraper list is now maintained
+* [IR] Introduced parseDate and parseAgoDates helper functions
+* [IR] TorchmarkCorp scraper updated to use new parseDate 
+* [IR] WordToNumber converter helper class added
+* [IR] onDestroy will now update only the running sites
+* [IR] POM updated to produce WAR and actuator dependency added
+
+[2019-02-14]
+* [IR] list of job saving is creating issue. So reverted back to single job save  
+* [IR] isStopped check is creating problem. Removing for now.
+* [IR] Fixed jsoup connection issue in jpmorgan and snp global
+* [IR] Fixed date parse issue in morgan stanley
+
+[2019-02-10]
+* [IR] Start scraper classes by sending POST message
+
+[2019-02-03]
+* [IR] AbstractScrapper now gets job list from implementing classes and saves jobs to DB in batch
+* [IR] baseUrl introduced, developers need to remove JOBSITE_HOST constant
+
+[2019-02-03]
+* [IR] Removed unneeded classes and namespaces
+* [MR] Canadian Imperial Bank Parser added
+* [MR] Test Case For Scrapper Added
+* [IR] Updated when the last run start time and end time are updated
+* [IR] Added helper method getPageCount
+* [NH] Mediobanca done parsing
+
+[2019-01-31]
+* [BU] Assicurazioni Generali Global Job Site done with DB
+* [NH] Generali Italy Updated
+* [NH] Generali Italy and Hong Kong Exchange done parsing
+* [TI] Toronto Dominion Bank parsing done
+
+[2019-01-30]
+* [MR] Old classes refactored according to the instructions given by Team Lead 
+* [MR] Standard Chartered Bank JOBSITE scrapper added 
+* [MR] Commerz Bank JOBSITE scrapper added 
+* [FI] MSCI issue fix and isJobInDB check removed
+* [BU] Credit Agricole issues fixed
+* [BU] NomuraHoldings Asia Pacific done with db
+* [BU] MUFGAmericas Commited with issues
+* [BU] MUFGAsia And UobSingapore Refactored
+* [AC] Intesa Sanpaolo and Nomura Global Done
+* [NH] Bank Nova Scotia USA and EMEA done parsing
+* [NH] Common Wealth Bank of Austrlia jobCount modified
+* [NH] S&P Global jobCount modified
+* [TI] Unicredit Hungary done
+
+[2019-01-29]
+* [FI] NatixisBank done with DB
+* [TI] BBVA Colombia done 
+* [MR] Citigroup jobsite parsing done
+* [NH] Bank of America Parsing done
+
+[2019-01-28]
+* [NH] Societe Generale Jobsite parsing done
+* [MR] Goldman Sachs jobsite parsing done
+* [MR] UBS Group jobsite parsing done
+* [MR] Removed unwanted imports from Ing Group & InterContinental Bank
+* [MR] Added Author comment to the class head comment section
+
+[2019-01-27]
+* [FI] MSCI done with DB
+* [FI] SWED Bank code minor update for interface change
+* [BU] MUFGAsia job site done with db
+* [BU] UOBSingapore job site done with db
+* [MR] Added Two New Classes for HSBC(100%done) and UBS(in progress) in scrapper package
+* [MR] Refactored JPMorgan Class (100% Working)
+* [MR] Removed Unnecessary fields and variables from JPMorgan, MorganStanley, HSBC, NAtionalAustralia
+
+[2019-01-24]
+* [IR] Added feature to run enabled scrappers only
+* [IR] Executor Java configuration moved to spring config file (application.yml)
+* [IR] Fixed job specification incomplete issue in MufgIndonesia
+* [IR] JPMorgan and MUFGIndonesia renamed as per java class naming guideline
+* [TI] Nordea Bank done
+* [BU] Ip Rotation done at Deutsche Borse Group
+* [NH] Bbva Uruguay,Bbva Uruguay,Unicredit Italy Done
+* [NH] Author Comment Added in Moodys Corp And Abn Amro
+* [NH] 30 second Timeout added in JsoupDoc Provider
+* [BU] Bank Of IreLand Job Site Done with DB
+
+[2019-01-23]
+* [BU] Skand Enskilda Banken Sweden Job Site Done with DB
+* [BU] Skand Enskilda Banken Lithuania Job Site Done with DB
+* [BU] Skand Enskilda Banken Denmark Job Site Done with DB
+* [IR] webscrapper-0.3.0-SNAPSHOT
+* [IR] Feature added to check for job record before parsing or adding to DB
+* [IR] Site metadata table updated with scrapper start and end time
+* [IR] Graceful exit of scrappers
+* [IR] Site short name constant moved out of Scrapper to ShortName class
+* [IR] Database config updated to define transaction manager for JPA
+* [NH] RBS,MoodyCorp And BbvaParaguay Done
+
+[2019-01-22]
+* [BU] Deutsche Borse Group Job Site Done with DB
+* [NH] S&p Gloabl,Macquire Group And Abn Amro Done
+
+[2019-01-21]
+* [NH] Common Wealth Bank of Australia Done
+* [IR] webscrapper-0.2.0-SNAPSHOT
+* [IR] Added Java config for naztech JDBC and removed XML configs
+* [IR] Started using naztech core service to save and query job table
+* [IR] INGGroup renamed to IngGroup (Java class naming standard)
+* [IR] All scraper classes (except JPM) updated
+* [IR] Scraper instance can now be disabled using Spring config
+
+[2019-01-20]
+* [FI] CmeGroup done with DB
+
+[2019-01-17]
+* [IR] Launch scrapper async
+* [IR] Job saving functionality moved to abstract class
+* [NH] All jobs from BNP Paribas sites are stored in DB
+
+[2019-01-16]
+* [IR] webscrapper-0.1.0-SNAPSHOT
+* [IR] All scrappers are now launched from scheduler 
+* [IR] JPA attribute converter added for LocalDate, LocalDateTime, Object to JSON
+* [IR] DB models updated to use the new converters
+
+[2019-01-12]
+* [MR] changes in proxy provider
+* [MR] webscrapper-0.0.1-SNAPSHOT initial commit into new repo
+* [MR] JPMorgan jobs now saved in database
+* [MR] JPMorgan job site scrapping done

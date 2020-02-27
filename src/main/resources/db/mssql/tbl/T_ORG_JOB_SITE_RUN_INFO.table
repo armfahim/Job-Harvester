@@ -1,0 +1,17 @@
+/****** Object:  Table [dbo].[T_SITE_RUN_INFO]  ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[T_ORG_JOB_SITE_RUN_INFO](
+	[id_info_key] [bigint] IDENTITY(1,1) NOT NULL,
+	[tx_org_short_name] [varchar](32) NOT NULL,
+	[dtt_start] [datetime] NULL,
+	[dtt_end] [datetime] NULL,
+	[id_expected] [int] NULL,
+	[id_parsed] [int] NULL,
+	[id_runtime] [bigint] NULL,
+	[dtt_added] [datetime] NOT NULL,
+	[dtt_update] [datetime] NULL)

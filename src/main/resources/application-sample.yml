@@ -1,0 +1,111 @@
+spring:
+  profiles:
+    active:
+    - dev
+  application:
+    name: Job site harvestar (scraper)
+
+  rabbitmq:
+    host: vNTDACLSWSCRWD1
+    port: 5672
+    username: naztech
+    password: n@ztech321
+  
+  data:
+    elasticsearch:
+      cluster-name: search-cluster
+      cluster-nodes: 10.33.255.82:9300
+      repositories:
+        enabled: true 
+
+# https://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
+# TASK EXECUTION  (TaskExecutionProperties)
+  task:
+    execution:
+      pool:
+        core-size: 3
+        max-size: 3
+        queue-capacity: 25
+      thread-name-prefix: async-
+    scheduling:
+      pool:
+        size: 3
+      thread-name-prefix: scrapper-
+
+  datasource:
+    url: jdbc:jtds:sqlserver://10.33.34.44:1433/WSCRAPER
+    username: wscraper_dbo
+    password: wscraper_dbo123
+    driver-class-name: net.sourceforge.jtds.jdbc.Driver
+    hikari:
+      connection-test-query: SELECT 1
+  jpa:
+    show-sql: true
+    properties:
+      hibernate.dialect: org.hibernate.dialect.SQLServer2012Dialect
+      default_schema: dbo
+
+logging:
+  file: webscraper.log
+  level:
+    .: ERROR
+    org.springframework: ERROR
+    com.nazdaqTechnologies: WARN
+    com.nazdaqTechnologies.jdbc: ERROR
+    io.naztech.jobharvestar.crawler: TRACE
+    io.naztech.jobharvestar.scraper: TRACE
+    com.gargoylesoftware.htmlunit: ERROR
+    com.gargoylesoftware.htmlunit.javascript.StrictErrorReporter: OFF
+    com.gargoylesoftware.htmlunit.javascript.host.ActiveXObject: OFF
+    com.gargoylesoftware.htmlunit.javascript.host.html.HTMLDocument: OFF
+    com.gargoylesoftware.htmlunit.javascript.host.WindowProxy: OFF
+    com.gargoylesoftware.htmlunit.javascript.host.xml.XMLHttpRequest: OFF
+    com.gargoylesoftware.htmlunit.WebConsole: OFF
+
+selenium:
+  webdriver:
+    chrome-driver: webdrivers/chromedriver-76.exe
+    firefox-driver: webdrivers/geckodriver.exe
+
+naztech:
+  webscrapper:
+    enable-tagging: true
+    enable-elasticsearch: false
+    job-list-buffer: 1
+    concurrency: 4
+    enabledScrappers: archCapitalGroup
+    disableScrappers: 
+---
+spring:
+  profiles: dev
+  datasource:
+    url: jdbc:jtds:sqlserver://vNTDACLSCRAPR01:1433/WSCRAPER
+    username: wscraper_dbo
+    password: wscraper_dbo123
+
+logging:
+  file: webscraper.log
+  level:
+    .: ERROR
+    org.springframework: ERROR
+    com.nazdaqTechnologies: WARN
+    com.nazdaqTechnologies.jdbc: ERROR
+    io.naztech.jobharvestar.crawler: TRACE
+    io.naztech.jobharvestar.scraper: TRACE
+    com.gargoylesoftware.htmlunit: ERROR
+    com.gargoylesoftware.htmlunit.javascript.StrictErrorReporter: OFF
+    com.gargoylesoftware.htmlunit.javascript.host.ActiveXObject: OFF
+    com.gargoylesoftware.htmlunit.javascript.host.html.HTMLDocument: OFF
+    com.gargoylesoftware.htmlunit.javascript.host.WindowProxy: OFF
+    com.gargoylesoftware.htmlunit.javascript.host.xml.XMLHttpRequest: OFF
+---
+spring:
+  profiles: linux
+
+selenium:
+  webdriver:
+    chrome-driver: webdrivers/chromedriver
+    firefox-driver: webdrivers/geckodriver
+
+logging:
+  file: /tmp/webscraper.log

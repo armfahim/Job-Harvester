@@ -1,0 +1,14 @@
+/****** Object:  Table [dbo].[T_SITES_JOB_COUNT_HISTORY] ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[T_SITES_JOB_COUNT_HISTORY](
+	[id_site_history_key] [int] IDENTITY(1,1) NOT NULL,
+	[tx_org_short_name] [varchar](32) NOT NULL,
+	[dt_date] [date] NOT NULL,
+	[id_job_count] [int] NOT NULL
+) ON [PRIMARY]
+GO
