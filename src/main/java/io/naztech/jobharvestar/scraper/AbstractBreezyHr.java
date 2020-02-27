@@ -53,7 +53,7 @@ public abstract class AbstractBreezyHr extends AbstractScraper implements Scrapp
 	}
 
 	private Job getJobDetail(String url) throws IOException {
-		Job job = new Job(url);
+		Job job = new Job(url);  
 		Document doc = Jsoup.connect(job.getUrl()).get();
 		job.setTitle(doc.selectFirst("h1").text().trim());
 		job.setName(job.getTitle());
@@ -65,7 +65,7 @@ public abstract class AbstractBreezyHr extends AbstractScraper implements Scrapp
 		jobE = doc.selectFirst("li[class=type]>span");
 		if (jobE != null) job.setType(jobE.text().trim().split("TYPE_")[1].split("%")[0].trim());
 		return job;
-	}
+	}  
 	
 	protected String getRowListXPath() {
 		return "li[class=position transition]>a";
